@@ -1,18 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import Map from "./components/Map";
 import SearchInput from "./components/SearchInput";
 import Wiki from "./components/Wiki";
 import Meteo from "./components/Meteo";
 import Booking from "./components/Booking";
+import Calendrier from "./components/Calendrier";
+import useLocalStorage from "./components/useLocalStorage";
+import Login from "./components/Login";
 
 function App() {
+  const [id, setId] = useLocalStorage("login");
+  const [pass, setPass] = useLocalStorage("password");
+  const [isLogged, setIsLogged] = useLocalStorage("isLogged", false);
+
+  const handleSubmit = (e) => {
+    const login = e.target.login.value;
+    const password = e.target.password.value;
+    if (login === "admin" && password === "mdp") {
+      setId(login);
+      setPass(password);
+      setIsLogged(true);
+    }
+  };
   return (
     <div className="App">
-      <SearchInput />
-      <Map />
-      <Wiki />
-      <Meteo />
-      <Booking />
+      {!isLogged ? (
+        <Login onSubmit={handleSubmit} />
+      ) : (
+        <>
+          <SearchInput />
+          <Map />
+          <Wiki />
+          <Meteo />
+          <Booking />
+          <div className="calendar-container">
+            <Calendrier />
+          </div>
+        </>
+      )}
     </div>
   );
 }

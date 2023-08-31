@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "../styles/map.css";
 import { Context } from "./Context";
 
+
 export default function Map() {
   const { latitude, longitude, fetchedData, fetchLocationData } =
     useContext(Context);
@@ -10,6 +11,8 @@ export default function Map() {
   useEffect(() => {
     fetchLocationData();
   }, []);
+
+
   return (
     <>
       {fetchedData ? (

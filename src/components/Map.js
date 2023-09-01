@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "../styles/map.css";
 import { Context } from "./Context";
-
+import Meteo from "./Meteo";
 
 export default function Map() {
   const { latitude, longitude, fetchedData, fetchLocationData } =
@@ -12,9 +12,9 @@ export default function Map() {
     fetchLocationData();
   }, []);
 
-
   return (
     <>
+      <h1 className="text-center">Recherche de localisation</h1>
       {fetchedData ? (
         <div className="map-container">
           <div className="map">
@@ -34,6 +34,7 @@ export default function Map() {
               </Marker>
             </MapContainer>
           </div>
+          <Meteo />
         </div>
       ) : (
         <p>Loading...</p>

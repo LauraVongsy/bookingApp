@@ -27,7 +27,7 @@ export default function Meteo() {
     fetchWeather();
   }, [latitude, longitude]);
   return (
-    <div>
+    <div className="ms-4">
       <h1>{city}</h1>
       <p>{`Météo actuelle: ${cloud}`}</p>
       <p>{`Température actuelle: ${Math.floor(Temp)}°C`}</p>

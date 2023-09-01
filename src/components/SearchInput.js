@@ -12,7 +12,6 @@ function SearchInput() {
 
   return (
     <div className="searchInput">
-      <h1>Recherche de localisation</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

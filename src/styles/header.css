@@ -1,0 +1,15 @@
+#welcome {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#bienvenue {
+  margin-left: 50px;
+}
+
+#avatar {
+  margin-left: 60px;
+  height: 65px;
+  cursor: pointer;
+}
